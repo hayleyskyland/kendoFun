@@ -1,7 +1,9 @@
-/* whole page */
-
 body {
   font-family: Arial;
   position: relative;
   text-align: center;
+}
+
+img {
+  height: 3rem;
 }
