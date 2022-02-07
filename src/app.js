@@ -34,7 +34,10 @@ $(function(){
 
       dataSource: {
         data: kitties
-      }
+      },
+
+      width: 400,
+      scrollable: true
 
   });
 })

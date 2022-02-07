@@ -2,6 +2,15 @@ body {
   font-family: Arial;
   position: relative;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 3rem;
+  background-color: rgb(247, 236, 238);
+}
+
+#grid {
+  text-align: center;
 }
 
 img {
