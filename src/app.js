@@ -1,21 +1,27 @@
-$(document).ready(function(){
+$(function(){
   $("#grid").kendoGrid({
+    
       columns: [{
-          field: "FirstName",
-          title: "First Name"
+          field: "KittyName",
+          title: "Kitty Name"
       },
       {
-          field: "LastName",
-          title: "Last Name"
+          field: "KittyAge",
+          title: "Kitty Age"
       }],
+
       dataSource: {
           data: [{
-              FirstName: "Joe",
-              LastName: "Smith"
+              KittyName: "Charmmykitty",
+              KittyAge: "8"
           },
           {
-              FirstName: "Jane",
-              LastName: "Smith"
+              KittyName: "Embercat",
+              KittyAge: "2"
+          },
+          {
+              KittyName: "Kittay",
+              KittyAge: "13"
           }]
       }
   });
