@@ -23,20 +23,14 @@ $(function(){
         {
           field: "name",
           title: "Kitty Name",
-          template: "<button id='name'><img src='#= flower #' />#= name #</div>",
-          headerAttributes: {
-            "class": "table-header-cell k-text-24",
-            style: "font-size: 24px"
-          }
+          template: "<button id='#= name #'><img src='#= flower #' />#= name #</div>",
+          headerAttributes: { style: "font-size: 24px" }
         },
         {
           field: "age",
           title: "Kitty Age",
           template: "<div id='age'>#= age #</div>",
-          headerAttributes: {
-            "class": "table-header-cell k-text-24",
-            style: "font-size: 24px"
-          }
+          headerAttributes: { style: "font-size: 24px" }
         }
       ],
 
@@ -56,6 +50,7 @@ $(function(){
 
 $(function() {
   $("button").on("click", function(e) {
-      alert("test");
+    let kitty = $("#button").attr("id");
+    alert(`You clicked ${kitty}`);
   });
 })
