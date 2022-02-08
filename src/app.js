@@ -71,7 +71,11 @@ $(function() {
     console.log('deleted:', 'Charmmykitty');
 
     grid.removeRow("tr:eq(1)");
-    $.cookie("deletedKitty", "Charmmykitty", { "expires": 7 });
+    $.cookie("deletedKitty", "Charmmykitty");
+
+    console.log($.cookie("deletedKitty"));
+
+    // console.log(getCookie("deletedKitty"));
   });
 
   buttonEmber.on("click", function(e) {
