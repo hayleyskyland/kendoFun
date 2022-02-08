@@ -1,5 +1,3 @@
-let grid = $("#grid").data("kendoGrid");
-
 const kitties = [
   {
     name: "Charmmykitty",
@@ -51,41 +49,44 @@ $(function(){
   });
 })
 
+const deleteRow = () => {
+  let grid = $("#grid").data("kendoGrid");
+  grid.removeRow("tr:eq(1)");
+}
+
 $(function() {
-  if ($.cookie("deleted") === "Charmmykitty") {
-    grid.removeRow("tr:eq(1)");
+  if ($.cookie("deletedKitty") === "Charmmykitty") {
+    deleteRow();
   };
 });
 
 $(function() {
-  let button = $("button");
+  const grid = $("#grid").data("kendoGrid");
+  const buttonCharmmy = $("#Charmmykitty");
+  const buttonEmber = $("#Embercat");
+  const buttonKittay = $("#Kittay");
 
-    if ($.cookie("deleted") === "Charmmykitty") {
-      grid.removeRow("tr:eq(1)");
-    };
+  buttonCharmmy.on("click", function(e) {
+    // console.log('dynamic:', kitty);
+    console.log('deleted:', 'Charmmykitty');
 
-  button.on("click", function(e) {
-    let kitty = button.attr("id");
-    let grid = $("#grid").data("kendoGrid");
-
-    if (kitty === 'Charmmykitty') {
-      grid.removeRow("tr:eq(1)");
-      console.log(kitty);
-      alert(`You deleted Charmmykitty!`);
-      $.cookie("deleted", "Charmmykitty", { "expires": 1/48 });
-
-    } else if (kitty === 'Embercat') {
-      grid.removeRow("tr:eq(2)");
-      console.log(kitty);
-      alert(`You deleted Embercat!`);
-
-    } else {
-      grid.removeRow("tr:eq(3)");
-      console.log(kitty);
-      alert(`You deleted Kittay!`);
-    }
-    // alert(`You clicked a kitty name!`);
-    // console.log(kitty)
-    
+    grid.removeRow("tr:eq(1)");
+    $.cookie("deletedKitty", "Charmmykitty", { "expires": 7 });
   });
-})
+
+  buttonEmber.on("click", function(e) {
+    // console.log('dynamic:', kitty);
+    console.log('deleted:', 'Embercat');
+
+    grid.removeRow("tr:eq(2)");
+    $.cookie("deletedKitty", "Embercat", { "expires": 7 });
+  });
+
+  buttonKittay.on("click", function(e) {
+    // console.log('dynamic:', kitty);
+    console.log('deleted:', 'Kittay');
+
+    grid.removeRow("tr:eq(3)");
+    $.cookie("deletedKitty", "Kittay", { "expires": 7 });
+  });
+});
