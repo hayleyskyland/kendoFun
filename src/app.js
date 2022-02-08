@@ -1,3 +1,5 @@
+let grid = $("#grid").data("kendoGrid");
+
 const kitties = [
   {
     name: "Charmmykitty",
@@ -11,7 +13,7 @@ const kitties = [
   },
   {
     name: "Kittay",
-    age: "13",
+    age: "14",
     flower: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/green-flowers-green-gerber-daisy-1586803096.jpg"
   }
 ]
@@ -50,11 +52,40 @@ $(function(){
 })
 
 $(function() {
-  var button = $("button");
+  if ($.cookie("deleted") === "Charmmykitty") {
+    grid.removeRow("tr:eq(1)");
+  };
+});
+
+$(function() {
+  let button = $("button");
+
+    if ($.cookie("deleted") === "Charmmykitty") {
+      grid.removeRow("tr:eq(1)");
+    };
 
   button.on("click", function(e) {
     let kitty = button.attr("id");
-    alert(`You clicked a kitty name!`);
-    console.log(kitty)
+    let grid = $("#grid").data("kendoGrid");
+
+    if (kitty === 'Charmmykitty') {
+      grid.removeRow("tr:eq(1)");
+      console.log(kitty);
+      alert(`You deleted Charmmykitty!`);
+      $.cookie("deleted", "Charmmykitty", { "expires": 1/48 });
+
+    } else if (kitty === 'Embercat') {
+      grid.removeRow("tr:eq(2)");
+      console.log(kitty);
+      alert(`You deleted Embercat!`);
+
+    } else {
+      grid.removeRow("tr:eq(3)");
+      console.log(kitty);
+      alert(`You deleted Kittay!`);
+    }
+    // alert(`You clicked a kitty name!`);
+    // console.log(kitty)
+    
   });
 })
