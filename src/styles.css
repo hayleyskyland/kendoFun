@@ -1,13 +1,16 @@
+/* page */
+
 body {
   font-family: Arial;
-  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding-top: 3rem;
-  /* background-color: rgb(247, 236, 238); */
-  background-color: lightyellow;
+  background-color: rgb(247, 236, 238);
+  /* background-color: lightyellow; */
 }
+
+/* grid */
 
 img {
   height: 1rem;
@@ -15,7 +18,9 @@ img {
   margin: 0.25rem 0.5rem 0 0;
 }
 
-button {
+#Charmmykitty,
+#Embercat,
+#Kittay {
   border: 0px;
   background-color: transparent;
   font-size: 16px;
@@ -42,4 +47,13 @@ button {
 
 #Kittay {
   color: green;
+}
+
+/* after grid */
+
+#undoBtn {
+  margin-top: 2rem;
+  font-size: 16px;
+  border: 1px solid lightgray;
+  padding: 0.5rem;
 }
