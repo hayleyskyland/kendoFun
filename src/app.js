@@ -1,18 +1,16 @@
-const grid = $("#grid").data("kendoGrid");
-
-let kitties = [
+const kitties = [
   {
-    kittyName: "Charmmykitty",
+    name: "Charmmykitty",
     age: "08",
     flower: "https://www.provenwinners.com/sites/provenwinners.com/files/imagecache/500x500/ifa_upload/pink_chiffon_hibiscus_0.jpg"
   },
   {
-    kittyName: "Embercat",
+    name: "Embercat",
     age: "02",
     flower: "https://i5.walmartimages.com/asr/555507a6-387b-4972-8207-deaf97fab275_1.11842a3a5487661dea68be2b7f680770.png"
   },
   {
-    kittyName: "Kittay",
+    name: "Kittay",
     age: "14",
     flower: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/green-flowers-green-gerber-daisy-1586803096.jpg"
   }
@@ -23,9 +21,9 @@ $(function(){
 
       columns: [
         {
-          field: "kittyName",
+          field: "name",
           title: "Kitty Name",
-          template: "<button id='#= kittyName #'><img src='#= flower #' />#= kittyName #</div>",
+          template: "<button id='#= name #'><img src='#= flower #' />#= name #</div>",
           headerAttributes: { style: "font-size: 24px" }
         },
         {
@@ -38,75 +36,90 @@ $(function(){
 
       dataSource: {
         data: kitties
+        // pageSize: 1
       },
 
       width: 500,
       scrollable: false,
+      // pageable: true,
+      // groupable: true,
+      // selectable: true,
       sortable: true
 
   });
 })
 
-// const filterKitties = kitties.filter(kitty => {
-//   if (kitty.kittyName !== "Charmmykitty") {
-//     return kitty;
-//   };
-// });
-
-const filterKitties = () => {
-  kitties = [
-    {
-      kittyName: "Charmmykitty2",
-      age: "08",
-      flower: "https://www.provenwinners.com/sites/provenwinners.com/files/imagecache/500x500/ifa_upload/pink_chiffon_hibiscus_0.jpg"
-    },
-    {
-      kittyName: "Embercat2",
-      age: "02",
-      flower: "https://i5.walmartimages.com/asr/555507a6-387b-4972-8207-deaf97fab275_1.11842a3a5487661dea68be2b7f680770.png"
-    },
-    {
-      kittyName: "Kittay2",
-      age: "14",
-      flower: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/green-flowers-green-gerber-daisy-1586803096.jpg"
-    }
-  ]
+const deleteRowCharmmy = () => {
+  let grid = $("#grid").data("kendoGrid");
+  grid.removeRow("tr:eq(1)");
 }
 
-// sonarr.filter(user => user.id > 0)
+const deleteRowEmber = () => {
+  let grid = $("#grid").data("kendoGrid");
+  grid.removeRow("tr:eq(2)");
+}
+
+const deleteRowKittay = () => {
+  let grid = $("#grid").data("kendoGrid");
+  grid.removeRow("tr:eq(3)");
+}
 
 $(function() {
+  if ($.cookie("deletedCharmmy") === "yes") {
+    deleteRowCharmmy();
+  };
+
+  if ($.cookie("deletedEmber") === "yes") {
+    deleteRowEmber();
+  };
+
+  if ($.cookie("deletedKittay") === "yes") {
+    deleteRowKittay();
+  };
+});
+
+$(function() {
+  const grid = $("#grid").data("kendoGrid");
   const buttonCharmmy = $("#Charmmykitty");
+  const buttonEmber = $("#Embercat");
+  const buttonKittay = $("#Kittay");
 
   buttonCharmmy.on("click", function(e) {
-    console.log("charmmy button clicked");
+    console.log('deleted:', 'Charmmykitty');
 
-    kitties = filterKitties();
+    deleteRowCharmmy();
+    $.cookie("deletedCharmmy", "yes");
+
+    console.log('deletion confirmed:', $.cookie("deletedCharmmy"));
+  });
+
+  buttonEmber.on("click", function(e) {
+    console.log('deleted:', 'Embercat');
+
+    grid.removeRow("tr:eq(2)");
+    $.cookie("deletedEmber", "yes", { "expires": 7 });
+
+    console.log('deletion confirmed:', $.cookie("deletedEmber"));
+  });
+
+  buttonKittay.on("click", function(e) {
+    console.log('deleted:', 'Kittay');
+
+    grid.removeRow("tr:eq(3)");
+    $.cookie("deletedKittay", "yes", { "expires": 7 });
+
+    console.log('deletion confirmed:', $.cookie("deletedKittay"));
   });
 });
 
-// $(function() {
-//   const undoBtn = $("#undoBtn");
+$(function() {
+  const undoBtn = $("#undoBtn");
 
-//   undoBtn.on("click", function(e) {
-//     console.log("undo button clicked");
+  undoBtn.on("click", function(e) {
+    console.log('clicked undo');
 
-//     let kitties = [
-//       {
-//         kittyName: "Charmmykitty",
-//         age: "08",
-//         flower: "https://www.provenwinners.com/sites/provenwinners.com/files/imagecache/500x500/ifa_upload/pink_chiffon_hibiscus_0.jpg"
-//       },
-//       {
-//         kittyName: "Embercat",
-//         age: "02",
-//         flower: "https://i5.walmartimages.com/asr/555507a6-387b-4972-8207-deaf97fab275_1.11842a3a5487661dea68be2b7f680770.png"
-//       },
-//       {
-//         kittyName: "Kittay",
-//         age: "14",
-//         flower: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/green-flowers-green-gerber-daisy-1586803096.jpg"
-//       }
-//     ]
-//   });
-// });
+    $.cookie("deletedCharmmy", "no", { "expires": 7 });
+    $.cookie("deletedEmber", "no", { "expires": 7 });
+    $.cookie("deletedKittay", "no", { "expires": 7 });
+  });
+});
