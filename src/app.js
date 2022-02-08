@@ -51,13 +51,9 @@ $(function(){
   });
 })
 
-const deleteRow = () => {
-  grid.removeRow("tr:eq(1)");
-}
-
 $(function() {
-  if ($.cookie("deletedCharmmy") === true) {
-    deleteRow();
+  if ($.cookie("deletedCharmmy") === "true") {
+    grid.removeRow("tr:eq(1)");
   };
 });
 
@@ -67,27 +63,24 @@ $(function() {
   const buttonKittay = $("#Kittay");
 
   buttonCharmmy.on("click", function(e) {
-    // console.log('deleted:', 'Charmmykitty');
     grid.removeRow("tr:eq(1)");
-    $.cookie("deletedCharmmy", true);
+    $.cookie("deletedCharmmy", "true");
 
     console.log($.cookie("deletedCharmmy"));
   });
 
   buttonEmber.on("click", function(e) {
-    // console.log('deleted:', 'Embercat');
-    grid.removeRow("tr:eq(2)");
-    $.cookie("deletedEmber", true);
+    // grid.removeRow("tr:eq(2)");
+    // $.cookie("deletedEmber", "true");
 
-    console.log($.cookie("deletedEmber"));
+    // console.log($.cookie("deletedEmber"));
   });
 
   buttonKittay.on("click", function(e) {
-    // console.log('deleted:', 'Kittay');
-    grid.removeRow("tr:eq(3)");
-    $.cookie("deletedKittay", true);
+    // grid.removeRow("tr:eq(3)");
+    // $.cookie("deletedKittay", "true");
 
-    console.log($.cookie("deletedKittay"));
+    // console.log($.cookie("deletedKittay"));
   });
 });
 
@@ -97,11 +90,10 @@ $(function() {
   undoBtn.on("click", function(e) {
     console.log("undo clicked");
 
-    grid.removeRow("tr:eq(1)");
-    $.cookie("deletedCharmmy", null);
-    $.cookie("deletedEmber", null);
-    $.cookie("deletedKittay", null);
+    $.cookie("deletedCharmmy", "false");
+    // $.cookie("deletedEmber", "false");
+    // $.cookie("deletedKittay", "false");
 
-    console.log(getCookie("deletedCharmmy"));
+    // console.log(getCookie("deletedCharmmy"));
   });
 });
