@@ -69,16 +69,19 @@ $(function(){
 const deleteRowCharmmy = () => {
   let grid = $("#grid").data("kendoGrid");
   grid.removeRow("tr:eq(1)");
+  deleteCharmmyBtn.hide();
 }
 
 const deleteRowEmber = () => {
   let grid = $("#grid").data("kendoGrid");
   grid.removeRow("tr:eq(2)");
+  deleteEmberBtn.hide();
 }
 
 const deleteRowKittay = () => {
   let grid = $("#grid").data("kendoGrid");
   grid.removeRow("tr:eq(3)");
+  deleteKittayBtn.hide();
 }
 
 // helper - click individual buttons
@@ -89,7 +92,7 @@ const clickCharmmy = () => {
   console.log('deleted:', 'Charmmykitty');
 
   deleteRowCharmmy();
-  deleteCharmmyBtn.hide();
+
   $.cookie("deletedCharmmy", "yes");
 
   console.log('deletion confirmed:', $.cookie("deletedCharmmy"));
@@ -100,8 +103,8 @@ const clickEmber = () => {
 
   console.log('deleted:', 'Embercat');
 
-  grid.removeRow("tr:eq(2)");
-  deleteEmberBtn.hide();
+  deleteRowEmber();
+
   $.cookie("deletedEmber", "yes", { "expires": 7 });
 
   console.log('deletion confirmed:', $.cookie("deletedEmber"));
@@ -112,8 +115,8 @@ const clickKittay = () => {
 
   console.log('deleted:', 'Kittay');
 
-  grid.removeRow("tr:eq(3)");
-  deleteKittayBtn.hide();
+  deleteRowKittay();
+
   $.cookie("deletedKittay", "yes", { "expires": 7 });
 
   console.log('deletion confirmed:', $.cookie("deletedKittay"));
@@ -144,14 +147,17 @@ $(function() {
 $(function() {
 
   deleteCharmmyBtn.on("click", function(e) {
+    e.preventDefault();
     clickCharmmy();
   });
 
   deleteEmberBtn.on("click", function(e) {
+    e.preventDefault();
     clickEmber();
   });
 
   deleteKittayBtn.on("click", function(e) {
+    e.preventDefault();
     clickKittay();
   });
 
@@ -190,5 +196,9 @@ $(function() {
     $.cookie("deletedCharmmy", "no", { "expires": 7 });
     $.cookie("deletedEmber", "no", { "expires": 7 });
     $.cookie("deletedKittay", "no", { "expires": 7 });
+
+    deleteCharmmyBtn.show();
+    deleteEmberBtn.show();
+    deleteKittayBtn.show();
   });
 });
