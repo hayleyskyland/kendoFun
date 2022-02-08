@@ -66,23 +66,29 @@ $(function(){
 
 // helper - delete individual rows
 
-const deleteRowCharmmy = () => {
+const deleteRow = (btn, row) => {
   let grid = $("#grid").data("kendoGrid");
-  grid.removeRow("tr:eq(1)");
-  deleteCharmmyBtn.hide();
+  grid.removeRow(`tr:eq(${row})`);
+  btn.hide();
 }
 
-const deleteRowEmber = () => {
-  let grid = $("#grid").data("kendoGrid");
-  grid.removeRow("tr:eq(2)");
-  deleteEmberBtn.hide();
-}
+// const deleteRowCharmmy = () => {
+//   let grid = $("#grid").data("kendoGrid");
+//   grid.removeRow("tr:eq(1)");
+//   deleteCharmmyBtn.hide();
+// }
 
-const deleteRowKittay = () => {
-  let grid = $("#grid").data("kendoGrid");
-  grid.removeRow("tr:eq(3)");
-  deleteKittayBtn.hide();
-}
+// const deleteRowEmber = () => {
+//   let grid = $("#grid").data("kendoGrid");
+//   grid.removeRow("tr:eq(2)");
+//   deleteEmberBtn.hide();
+// }
+
+// const deleteRowKittay = () => {
+//   let grid = $("#grid").data("kendoGrid");
+//   grid.removeRow("tr:eq(3)");
+//   deleteKittayBtn.hide();
+// }
 
 // helper - click individual buttons
 
@@ -91,7 +97,8 @@ const clickCharmmy = () => {
 
   console.log('deleted:', 'Charmmykitty');
 
-  deleteRowCharmmy();
+  // deleteRowCharmmy();
+  deleteRow(deleteCharmmyBtn, 1);
 
   $.cookie("deletedCharmmy", "yes");
 
@@ -103,7 +110,8 @@ const clickEmber = () => {
 
   console.log('deleted:', 'Embercat');
 
-  deleteRowEmber();
+  // deleteRowEmber();
+  deleteRow(deleteEmberBtn, 2);
 
   $.cookie("deletedEmber", "yes", { "expires": 7 });
 
@@ -115,7 +123,8 @@ const clickKittay = () => {
 
   console.log('deleted:', 'Kittay');
 
-  deleteRowKittay();
+  // deleteRowKittay();
+  deleteRow(deleteKittayBtn, 3);
 
   $.cookie("deletedKittay", "yes", { "expires": 7 });
 
@@ -167,15 +176,15 @@ $(function() {
 
 $(function() {
   if ($.cookie("deletedCharmmy") === "yes") {
-    deleteRowCharmmy();
+    deleteRow(deleteCharmmyBtn, 1);
   };
 
   if ($.cookie("deletedEmber") === "yes") {
-    deleteRowEmber();
+    deleteRow(deleteEmberBtn, 2);
   };
 
   if ($.cookie("deletedKittay") === "yes") {
-    deleteRowKittay();
+    deleteRow(deleteKittayBtn, 3);
   };
 
   if (($.cookie("deletedCharmmy") === "yes")
