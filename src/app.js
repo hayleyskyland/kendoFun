@@ -72,63 +72,18 @@ const deleteRow = (btn, row) => {
   btn.hide();
 }
 
-// const deleteRowCharmmy = () => {
-//   let grid = $("#grid").data("kendoGrid");
-//   grid.removeRow("tr:eq(1)");
-//   deleteCharmmyBtn.hide();
-// }
-
-// const deleteRowEmber = () => {
-//   let grid = $("#grid").data("kendoGrid");
-//   grid.removeRow("tr:eq(2)");
-//   deleteEmberBtn.hide();
-// }
-
-// const deleteRowKittay = () => {
-//   let grid = $("#grid").data("kendoGrid");
-//   grid.removeRow("tr:eq(3)");
-//   deleteKittayBtn.hide();
-// }
-
 // helper - click individual buttons
 
-const clickCharmmy = () => {
+const clickKitty = (kitty, btn, row, cookie) => {
   const grid = $("#grid").data("kendoGrid");
 
-  console.log('deleted:', 'Charmmykitty');
+  console.log('deleted:', kitty);
 
-  // deleteRowCharmmy();
-  deleteRow(deleteCharmmyBtn, 1);
+  deleteRow(btn, row);
 
-  $.cookie("deletedCharmmy", "yes");
+  $.cookie(cookie, "yes");
 
-  console.log('deletion confirmed:', $.cookie("deletedCharmmy"));
-};
-
-const clickEmber = () => {
-  const grid = $("#grid").data("kendoGrid");
-
-  console.log('deleted:', 'Embercat');
-
-  // deleteRowEmber();
-  deleteRow(deleteEmberBtn, 2);
-
-  $.cookie("deletedEmber", "yes", { "expires": 7 });
-
-  console.log('deletion confirmed:', $.cookie("deletedEmber"));
-};
-
-const clickKittay = () => {
-  const grid = $("#grid").data("kendoGrid");
-
-  console.log('deleted:', 'Kittay');
-
-  // deleteRowKittay();
-  deleteRow(deleteKittayBtn, 3);
-
-  $.cookie("deletedKittay", "yes", { "expires": 7 });
-
-  console.log('deletion confirmed:', $.cookie("deletedKittay"));
+  console.log('deletion confirmed:', $.cookie(cookie));
 };
 
 // call all click functions
@@ -139,15 +94,15 @@ $(function() {
   const buttonKittay = $("#Kittay");
 
   buttonCharmmy.on("click", function(e) {
-    clickCharmmy();
+    clickKitty('Charmmykitty', deleteCharmmyBtn, 1, 'deletedCharmmy');
   });
 
   buttonEmber.on("click", function(e) {
-    clickEmber();
+    clickKitty('Embercat', deleteEmberBtn, 2, 'deletedEmber');
   });
 
   buttonKittay.on("click", function(e) {
-    clickKittay();
+    clickKitty('Kittay', deleteKittayBtn, 3, 'deletedKittay');
   });
 });
 
@@ -157,17 +112,17 @@ $(function() {
 
   deleteCharmmyBtn.on("click", function(e) {
     e.preventDefault();
-    clickCharmmy();
+    clickKitty('Charmmykitty', deleteCharmmyBtn, 1, 'deletedCharmmy');
   });
 
   deleteEmberBtn.on("click", function(e) {
     e.preventDefault();
-    clickEmber();
+    clickKitty('Embercat', deleteEmberBtn, 2, 'deletedEmber');
   });
 
   deleteKittayBtn.on("click", function(e) {
     e.preventDefault();
-    clickKittay();
+    clickKitty('Kittay', deleteKittayBtn, 3, 'deletedKittay');
   });
 
 });
