@@ -75,14 +75,10 @@ const deleteRow = (btn, row) => {
 // helper - click individual buttons
 
 const clickKitty = (kitty, btn, row, cookie) => {
-  const grid = $("#grid").data("kendoGrid");
-
-  console.log('deleted:', kitty);
-
   deleteRow(btn, row);
-
   $.cookie(cookie, "yes");
 
+  console.log('deleted:', kitty);
   console.log('deletion confirmed:', $.cookie(cookie));
 };
 
@@ -109,22 +105,17 @@ $(function() {
 // delete dropdown
 
 $(function() {
-
   deleteCharmmyBtn.on("click", function(e) {
-    e.preventDefault();
     clickKitty('Charmmykitty', deleteCharmmyBtn, 1, 'deletedCharmmy');
   });
 
   deleteEmberBtn.on("click", function(e) {
-    e.preventDefault();
     clickKitty('Embercat', deleteEmberBtn, 2, 'deletedEmber');
   });
 
   deleteKittayBtn.on("click", function(e) {
-    e.preventDefault();
     clickKitty('Kittay', deleteKittayBtn, 3, 'deletedKittay');
   });
-
 });
 
 // call cookies
@@ -141,12 +132,6 @@ $(function() {
   if ($.cookie("deletedKittay") === "yes") {
     deleteRow(deleteKittayBtn, 3);
   };
-
-  if (($.cookie("deletedCharmmy") === "yes")
-    && ($.cookie("deletedEmber") === "yes")
-    && ($.cookie("deletedCharmmy") === "yes")
-  ) {
-  }
 });
 
 //////////// UNDO BUTTON ////////////
