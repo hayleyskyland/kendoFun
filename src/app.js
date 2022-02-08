@@ -1,3 +1,5 @@
+const grid = $("#grid").data("kendoGrid");
+
 const kitties = [
   {
     name: "Charmmykitty",
@@ -37,14 +39,10 @@ $(function(){
 
       dataSource: {
         data: kitties
-        // pageSize: 1
       },
 
       width: 500,
       scrollable: false,
-      // pageable: true,
-      // groupable: true,
-      // selectable: true,
       sortable: true
 
   });
@@ -77,6 +75,13 @@ $(function() {
   if ($.cookie("deletedKittay") === "yes") {
     deleteRowKittay();
   };
+
+  if (($.cookie("deletedCharmmy") === "yes")
+    && ($.cookie("deletedEmber") === "yes")
+    && ($.cookie("deletedCharmmy") === "yes")
+  ) {
+    grid.hide();
+  }
 });
 
 $(function() {
