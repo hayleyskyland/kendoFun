@@ -64,12 +64,26 @@ $(function(){
 
 //////////// DELETE ROWS ////////////
 
+// helpers - hide/show
+
+const hide = (elements) => {
+  elements.forEach(element => {
+    element.addClass("hidden");
+  });
+};
+
+const show = (elements) => {
+  elements.forEach(element => {
+    element.removeClass("hidden");
+  });
+};
+
 // helper - delete individual rows
 
 const deleteRow = (btn, row) => {
   let grid = $("#grid").data("kendoGrid");
   grid.removeRow(`tr:eq(${row})`);
-  btn.hide();
+  hide([btn]);
 }
 
 // helper - click individual buttons
@@ -140,14 +154,12 @@ $(function() {
   const undoBtn = $("#undoBtn");
 
   undoBtn.on("click", function(e) {
-    console.log('clicked undo');
-
     $.cookie("deletedCharmmy", "no", { "expires": 7 });
     $.cookie("deletedEmber", "no", { "expires": 7 });
     $.cookie("deletedKittay", "no", { "expires": 7 });
 
-    deleteCharmmyBtn.show();
-    deleteEmberBtn.show();
-    deleteKittayBtn.show();
+    show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
+
+    console.log('undo clicked')
   });
 });
