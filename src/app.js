@@ -56,7 +56,7 @@ const deleteRow = () => {
 }
 
 $(function() {
-  if ($.cookie("deletedKitty") === "Charmmykitty") {
+  if ($.cookie("deletedCharmmy") === true) {
     deleteRow();
   };
 });
