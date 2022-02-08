@@ -1,5 +1,3 @@
-const grid = $("#grid").data("kendoGrid");
-
 const kitties = [
   {
     name: "Charmmykitty",
@@ -25,7 +23,7 @@ $(function(){
         {
           field: "name",
           title: "Kitty Name",
-          template: "<button id='#= name #'><img src='#= flower #' />#= name #</div>",
+          template: "<button class='dropdown' id='#= name #'><img src='#= flower #' />#= name #</div>",
           headerAttributes: { style: "font-size: 24px" },
           width: 100
         },
@@ -80,7 +78,6 @@ $(function() {
     && ($.cookie("deletedEmber") === "yes")
     && ($.cookie("deletedCharmmy") === "yes")
   ) {
-    grid.hide();
   }
 });
 
