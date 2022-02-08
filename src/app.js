@@ -1,6 +1,12 @@
+//////////// GLOBAL VARIABLES ////////////
+
 const deleteCharmmyBtn = $("#deleteCharmmy");
 const deleteEmberBtn = $("#deleteEmber");
 const deleteKittayBtn = $("#deleteKittay");
+
+//////////// GRID INFO VARIABLES ////////////
+
+// data
 
 const kitties = [
   {
@@ -20,24 +26,30 @@ const kitties = [
   }
 ]
 
+// columns
+
+const columns = [
+  {
+    field: "name",
+    title: "Kitty Name",
+    template: "<button class='dropdown' id='#= name #'><img src='#= flower #' />#= name #</div>",
+    headerAttributes: { style: "font-size: 24px" },
+    width: 100
+  },
+  {
+    field: "age",
+    title: "Kitty Age",
+    template: "<div id='age'>#= age #</div>",
+    headerAttributes: { style: "font-size: 24px" }
+  }
+]
+
+//////////// KENDO GRID ////////////
+
 $(function(){
   $("#grid").kendoGrid({
 
-      columns: [
-        {
-          field: "name",
-          title: "Kitty Name",
-          template: "<button class='dropdown' id='#= name #'><img src='#= flower #' />#= name #</div>",
-          headerAttributes: { style: "font-size: 24px" },
-          width: 100
-        },
-        {
-          field: "age",
-          title: "Kitty Age",
-          template: "<div id='age'>#= age #</div>",
-          headerAttributes: { style: "font-size: 24px" }
-        }
-      ],
+      columns: columns,
 
       dataSource: {
         data: kitties
@@ -49,6 +61,10 @@ $(function(){
 
   });
 })
+
+//////////// DELETE ROWS ////////////
+
+// helper - delete individual rows
 
 const deleteRowCharmmy = () => {
   let grid = $("#grid").data("kendoGrid");
@@ -65,25 +81,7 @@ const deleteRowKittay = () => {
   grid.removeRow("tr:eq(3)");
 }
 
-$(function() {
-  if ($.cookie("deletedCharmmy") === "yes") {
-    deleteRowCharmmy();
-  };
-
-  if ($.cookie("deletedEmber") === "yes") {
-    deleteRowEmber();
-  };
-
-  if ($.cookie("deletedKittay") === "yes") {
-    deleteRowKittay();
-  };
-
-  if (($.cookie("deletedCharmmy") === "yes")
-    && ($.cookie("deletedEmber") === "yes")
-    && ($.cookie("deletedCharmmy") === "yes")
-  ) {
-  }
-});
+// helper - click individual buttons
 
 const clickCharmmy = () => {
   const grid = $("#grid").data("kendoGrid");
@@ -121,6 +119,7 @@ const clickKittay = () => {
   console.log('deletion confirmed:', $.cookie("deletedKittay"));
 };
 
+// call all click functions
 
 $(function() {
   const buttonCharmmy = $("#Charmmykitty");
@@ -140,17 +139,7 @@ $(function() {
   });
 });
 
-$(function() {
-  const undoBtn = $("#undoBtn");
-
-  undoBtn.on("click", function(e) {
-    console.log('clicked undo');
-
-    $.cookie("deletedCharmmy", "no", { "expires": 7 });
-    $.cookie("deletedEmber", "no", { "expires": 7 });
-    $.cookie("deletedKittay", "no", { "expires": 7 });
-  });
-});
+// delete dropdown
 
 $(function() {
 
@@ -166,4 +155,40 @@ $(function() {
     clickKittay();
   });
 
+});
+
+// call cookies
+
+$(function() {
+  if ($.cookie("deletedCharmmy") === "yes") {
+    deleteRowCharmmy();
+  };
+
+  if ($.cookie("deletedEmber") === "yes") {
+    deleteRowEmber();
+  };
+
+  if ($.cookie("deletedKittay") === "yes") {
+    deleteRowKittay();
+  };
+
+  if (($.cookie("deletedCharmmy") === "yes")
+    && ($.cookie("deletedEmber") === "yes")
+    && ($.cookie("deletedCharmmy") === "yes")
+  ) {
+  }
+});
+
+//////////// UNDO BUTTON ////////////
+
+$(function() {
+  const undoBtn = $("#undoBtn");
+
+  undoBtn.on("click", function(e) {
+    console.log('clicked undo');
+
+    $.cookie("deletedCharmmy", "no", { "expires": 7 });
+    $.cookie("deletedEmber", "no", { "expires": 7 });
+    $.cookie("deletedKittay", "no", { "expires": 7 });
+  });
 });
