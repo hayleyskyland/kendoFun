@@ -1,18 +1,18 @@
 const grid = $("#grid").data("kendoGrid");
 
-const kitties = [
+let kitties = [
   {
-    name: "Charmmykitty",
+    kittyName: "Charmmykitty",
     age: "08",
     flower: "https://www.provenwinners.com/sites/provenwinners.com/files/imagecache/500x500/ifa_upload/pink_chiffon_hibiscus_0.jpg"
   },
   {
-    name: "Embercat",
+    kittyName: "Embercat",
     age: "02",
     flower: "https://i5.walmartimages.com/asr/555507a6-387b-4972-8207-deaf97fab275_1.11842a3a5487661dea68be2b7f680770.png"
   },
   {
-    name: "Kittay",
+    kittyName: "Kittay",
     age: "14",
     flower: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/green-flowers-green-gerber-daisy-1586803096.jpg"
   }
@@ -23,9 +23,9 @@ $(function(){
 
       columns: [
         {
-          field: "name",
+          field: "kittyName",
           title: "Kitty Name",
-          template: "<button id='#= name #'><img src='#= flower #' />#= name #</div>",
+          template: "<button id='#= kittyName #'><img src='#= flower #' />#= kittyName #</div>",
           headerAttributes: { style: "font-size: 24px" }
         },
         {
@@ -38,62 +38,75 @@ $(function(){
 
       dataSource: {
         data: kitties
-        // pageSize: 1
       },
 
       width: 500,
       scrollable: false,
-      // pageable: true,
-      // groupable: true,
-      // selectable: true,
       sortable: true
 
   });
 })
 
-$(function() {
-  if ($.cookie("deletedCharmmy") === "true") {
-    grid.removeRow("tr:eq(1)");
-  };
-});
+// const filterKitties = kitties.filter(kitty => {
+//   if (kitty.kittyName !== "Charmmykitty") {
+//     return kitty;
+//   };
+// });
+
+const filterKitties = () => {
+  kitties = [
+    {
+      kittyName: "Charmmykitty2",
+      age: "08",
+      flower: "https://www.provenwinners.com/sites/provenwinners.com/files/imagecache/500x500/ifa_upload/pink_chiffon_hibiscus_0.jpg"
+    },
+    {
+      kittyName: "Embercat2",
+      age: "02",
+      flower: "https://i5.walmartimages.com/asr/555507a6-387b-4972-8207-deaf97fab275_1.11842a3a5487661dea68be2b7f680770.png"
+    },
+    {
+      kittyName: "Kittay2",
+      age: "14",
+      flower: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/green-flowers-green-gerber-daisy-1586803096.jpg"
+    }
+  ]
+}
+
+// sonarr.filter(user => user.id > 0)
 
 $(function() {
   const buttonCharmmy = $("#Charmmykitty");
-  const buttonEmber = $("#Embercat");
-  const buttonKittay = $("#Kittay");
 
   buttonCharmmy.on("click", function(e) {
-    grid.removeRow("tr:eq(1)");
-    $.cookie("deletedCharmmy", "true");
+    console.log("charmmy button clicked");
 
-    console.log($.cookie("deletedCharmmy"));
-  });
-
-  buttonEmber.on("click", function(e) {
-    // grid.removeRow("tr:eq(2)");
-    // $.cookie("deletedEmber", "true");
-
-    // console.log($.cookie("deletedEmber"));
-  });
-
-  buttonKittay.on("click", function(e) {
-    // grid.removeRow("tr:eq(3)");
-    // $.cookie("deletedKittay", "true");
-
-    // console.log($.cookie("deletedKittay"));
+    kitties = filterKitties();
   });
 });
 
-$(function() {
-  const undoBtn = $("#undoBtn");
+// $(function() {
+//   const undoBtn = $("#undoBtn");
 
-  undoBtn.on("click", function(e) {
-    console.log("undo clicked");
+//   undoBtn.on("click", function(e) {
+//     console.log("undo button clicked");
 
-    $.cookie("deletedCharmmy", "false");
-    // $.cookie("deletedEmber", "false");
-    // $.cookie("deletedKittay", "false");
-
-    // console.log(getCookie("deletedCharmmy"));
-  });
-});
+//     let kitties = [
+//       {
+//         kittyName: "Charmmykitty",
+//         age: "08",
+//         flower: "https://www.provenwinners.com/sites/provenwinners.com/files/imagecache/500x500/ifa_upload/pink_chiffon_hibiscus_0.jpg"
+//       },
+//       {
+//         kittyName: "Embercat",
+//         age: "02",
+//         flower: "https://i5.walmartimages.com/asr/555507a6-387b-4972-8207-deaf97fab275_1.11842a3a5487661dea68be2b7f680770.png"
+//       },
+//       {
+//         kittyName: "Kittay",
+//         age: "14",
+//         flower: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/green-flowers-green-gerber-daisy-1586803096.jpg"
+//       }
+//     ]
+//   });
+// });
