@@ -24,7 +24,8 @@ $(function(){
           field: "name",
           title: "Kitty Name",
           template: "<button id='#= name #'><img src='#= flower #' />#= name #</div>",
-          headerAttributes: { style: "font-size: 24px" }
+          headerAttributes: { style: "font-size: 24px" },
+          width: 100
         },
         {
           field: "age",
