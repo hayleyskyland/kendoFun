@@ -1,3 +1,7 @@
+const deleteCharmmyBtn = $("#deleteCharmmy");
+const deleteEmberBtn = $("#deleteEmber");
+const deleteKittayBtn = $("#deleteKittay");
+
 const kitties = [
   {
     name: "Charmmykitty",
@@ -87,6 +91,7 @@ const clickCharmmy = () => {
   console.log('deleted:', 'Charmmykitty');
 
   deleteRowCharmmy();
+  deleteCharmmyBtn.hide();
   $.cookie("deletedCharmmy", "yes");
 
   console.log('deletion confirmed:', $.cookie("deletedCharmmy"));
@@ -98,6 +103,7 @@ const clickEmber = () => {
   console.log('deleted:', 'Embercat');
 
   grid.removeRow("tr:eq(2)");
+  deleteEmberBtn.hide();
   $.cookie("deletedEmber", "yes", { "expires": 7 });
 
   console.log('deletion confirmed:', $.cookie("deletedEmber"));
@@ -109,6 +115,7 @@ const clickKittay = () => {
   console.log('deleted:', 'Kittay');
 
   grid.removeRow("tr:eq(3)");
+  deleteKittayBtn.hide();
   $.cookie("deletedKittay", "yes", { "expires": 7 });
 
   console.log('deletion confirmed:', $.cookie("deletedKittay"));
@@ -143,4 +150,20 @@ $(function() {
     $.cookie("deletedEmber", "no", { "expires": 7 });
     $.cookie("deletedKittay", "no", { "expires": 7 });
   });
+});
+
+$(function() {
+
+  deleteCharmmyBtn.on("click", function(e) {
+    clickCharmmy();
+  });
+
+  deleteEmberBtn.on("click", function(e) {
+    clickEmber();
+  });
+
+  deleteKittayBtn.on("click", function(e) {
+    clickKittay();
+  });
+
 });
