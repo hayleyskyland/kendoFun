@@ -43,14 +43,18 @@ $(function(){
       scrollable: false,
       // pageable: true,
       // groupable: true,
+      // selectable: true,
       sortable: true
 
   });
 })
 
 $(function() {
-  $("button").on("click", function(e) {
-    let kitty = $("#button").attr("id");
-    alert(`You clicked ${kitty}`);
+  var button = $("button");
+
+  button.on("click", function(e) {
+    let kitty = button.attr("id");
+    alert(`You clicked a kitty name!`);
+    console.log(kitty)
   });
 })
