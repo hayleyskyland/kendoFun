@@ -8,6 +8,8 @@ const deleteCharmmyBtn = $("#deleteCharmmy");
 const deleteEmberBtn = $("#deleteEmber");
 const deleteKittayBtn = $("#deleteKittay");
 
+const undoBtn = $("#undoBtn");
+
 //////////// GRID INFO VARIABLES ////////////
 
 // data
@@ -86,6 +88,8 @@ const deleteRow = (btn, kitty) => {
   // grid.removeRow(`tr:eq(${row})`);
   hide([btn]);
 
+  undoButton.removeClass('hidden');
+
   const index = kitties.findIndex(cat => cat.name === kitty);
 
   console.log("index:", index);
@@ -160,9 +164,6 @@ $(function() {
 //////////// UNDO BUTTON ////////////
 
 $(function() {
-  const undoBtn = $("#undoBtn");
-  // hide([refreshNotice]);
-
   undoBtn.on("click", function(e) {
     $.cookie("deletedCharmmy", "no", { "expires": 7 });
     $.cookie("deletedEmber", "no", { "expires": 7 });
@@ -189,6 +190,8 @@ $(function() {
     console.log("undo kitties:", kitties);
 
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
+
+    refreshNotice.removeClass('hidden');
 
     console.log('undo clicked');
     
