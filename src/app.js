@@ -175,7 +175,5 @@ $(function() {
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
 
     console.log('undo clicked');
-
-    window.setTimeout(location.reload(), 2000);
   });
 });
