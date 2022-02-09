@@ -1,19 +1,17 @@
 "use strict";
 
-const test = () => {
-  fetch('./data.json')
+let kitties = []
+
+fetch("./data.json")
   .then(function(resp) {
-    console.log('test 1');
     return resp.json();
   })
   .then(function(data) {
-    // console.log('test 2');
+    console.log('test')
     console.log(data);
-    return data;
+    kitties = data.kitties;
+    // console.log(kitties);
   })
-}
-
-test();
 
 //////////// GLOBAL VARIABLES ////////////
 
@@ -49,13 +47,15 @@ const columns = [
 //////////// KENDO GRID ////////////
 
 $(function(){
+  console.log('this array should not be empty:', kitties)
+  
   $("#grid").kendoGrid({
 
       columns: columns,
 
-      // dataSource: {
-      //   data: test()
-      // },
+      dataSource: {
+        data: kitties
+      },
 
       width: 500,
       scrollable: false,
