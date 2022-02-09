@@ -188,6 +188,8 @@ $(function() {
 //////////// UNDO BUTTON ////////////
 
 $(function() {
+  refreshNotice.addClass("hidden");
+
   undoBtn.on("click", function(e) {
     $.cookie("deletedCharmmy", "no", { "expires": 7 });
     $.cookie("deletedEmber", "no", { "expires": 7 });
@@ -215,8 +217,8 @@ $(function() {
 
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
 
-    refreshNotice.removeClass('hidden');
-    undoBtn.addClass('hidden');
+    refreshNotice.removeClass("hidden");
+    undoBtn.addClass("hidden");
 
     console.log('undo clicked');
   });
