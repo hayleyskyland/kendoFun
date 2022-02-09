@@ -111,23 +111,23 @@ const clickKitty = (kitty, btn, cookie) => {
 
 // call all click functions
 
-$(function() {
-  const buttonCharmmy = $("#Charmmykitty");
-  const buttonEmber = $("#Embercat");
-  const buttonKittay = $("#Kittay");
+// $(function() {
+//   const buttonCharmmy = $("#Charmmykitty");
+//   const buttonEmber = $("#Embercat");
+//   const buttonKittay = $("#Kittay");
 
-  buttonCharmmy.on("click", function(e) {
-    clickKitty('Charmmykitty', deleteCharmmyBtn, 'deletedCharmmy');
-  });
+//   buttonCharmmy.on("click", function(e) {
+//     clickKitty('Charmmykitty', deleteCharmmyBtn, 'deletedCharmmy');
+//   });
 
-  buttonEmber.on("click", function(e) {
-    clickKitty('Embercat', deleteEmberBtn, 'deletedEmber');
-  });
+//   buttonEmber.on("click", function(e) {
+//     clickKitty('Embercat', deleteEmberBtn, 'deletedEmber');
+//   });
 
-  buttonKittay.on("click", function(e) {
-    clickKitty('Kittay', deleteKittayBtn, 'deletedKittay');
-  });
-});
+//   buttonKittay.on("click", function(e) {
+//     clickKitty('Kittay', deleteKittayBtn, 'deletedKittay');
+//   });
+// });
 
 $(function() {
   const buttonCharmmy = $("#Charmmykitty");
