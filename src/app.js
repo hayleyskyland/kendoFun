@@ -192,6 +192,6 @@ $(function() {
 
     console.log('undo clicked');
 
-    location.reload();
+    window.setTimeout(location.reload(), 5000);
   });
 });
