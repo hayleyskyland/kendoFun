@@ -91,9 +91,11 @@ const deleteRow = (btn, kitty) => {
 
   console.log("index:", index)
 
-  kitties.splice(index, 1);
+  if (index != -1) {
+    kitties.splice(index, 1);
 
-  $("#grid").data("kendoGrid").dataSource.data(kitties);
+    $("#grid").data("kendoGrid").dataSource.data(kitties);
+  }
 }
 
 // helper - click individual buttons
@@ -175,6 +177,6 @@ $(function() {
 
     console.log('undo clicked')
 
-    reload();
+    location.reload();
   });
 });
