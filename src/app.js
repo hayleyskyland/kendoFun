@@ -129,6 +129,30 @@ $(function() {
   });
 });
 
+$(function() {
+  const buttonCharmmy = $("#Charmmykitty");
+
+  buttonCharmmy.on("click", function(e) {
+    clickKitty('Charmmykitty', deleteCharmmyBtn, 'deletedCharmmy');
+  });
+});
+
+$(function() {
+  const buttonEmber = $("#Embercat");
+
+  buttonEmber.on("click", function(e) {
+    clickKitty('Embercat', deleteEmberBtn, 'deletedEmber');
+  });
+});
+
+$(function() {
+  const buttonKittay = $("#Kittay");
+
+  buttonKittay.on("click", function(e) {
+    clickKitty('Kittay', deleteKittayBtn, 'deletedKittay');
+  });
+});
+
 // delete dropdown
 
 $(function() {
@@ -195,7 +219,5 @@ $(function() {
     undoBtn.addClass('hidden');
 
     console.log('undo clicked');
-    
-    // alert("Please refresh the page to update.")
   });
 });
