@@ -176,6 +176,6 @@ $(function() {
 
     console.log('undo clicked');
 
-    window.reload();
+    window.setTimeout(location.reload(), 2000);
   });
 });
