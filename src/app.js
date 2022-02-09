@@ -10,6 +10,7 @@ const fetchKitties = () => {
   .then(function(data) {
     console.log(data);
     kitties = data.kitties;
+    // console.log(kitties);
   })
 }
 
@@ -22,6 +23,11 @@ const deleteEmberBtn = $("#deleteEmber");
 const deleteKittayBtn = $("#deleteKittay");
 
 //////////// GRID INFO VARIABLES ////////////
+
+// data
+
+// const kitties = [
+// ];
 
 // columns
 
@@ -77,6 +83,8 @@ const show = (elements) => {
 // helper - delete individual rows
 
 const deleteRow = (btn, kitty) => {
+  // let grid = $("#grid").data("kendoGrid");
+  // grid.removeRow(`tr:eq(${row})`);
   hide([btn]);
 
   const index = kitties.findIndex(cat => cat.name === kitty);
@@ -90,8 +98,10 @@ const deleteRow = (btn, kitty) => {
 
 const clickKitty = (kitty, btn, cookie) => {
   deleteRow(btn, kitty);
+  $.cookie(cookie, "yes");
 
   console.log('deleted:', kitty);
+  // console.log('deletion confirmed:', $.cookie(cookie));
 };
 
 // call all click functions
@@ -130,12 +140,32 @@ $(function() {
   });
 });
 
+// call cookies
+
+$(function() {
+  if ($.cookie("deletedCharmmy") === "yes") {
+    deleteRow(deleteCharmmyBtn, "Charmmykitty");
+  };
+
+  if ($.cookie("deletedEmber") === "yes") {
+    deleteRow(deleteEmberBtn, "Embercat");
+  };
+
+  if ($.cookie("deletedKittay") === "yes") {
+    deleteRow(deleteKittayBtn, "Kittay");
+  };
+});
+
 //////////// UNDO BUTTON ////////////
 
 $(function() {
   const undoBtn = $("#undoBtn");
 
   undoBtn.on("click", function(e) {
+    $.cookie("deletedCharmmy", "no", { "expires": 7 });
+    $.cookie("deletedEmber", "no", { "expires": 7 });
+    $.cookie("deletedKittay", "no", { "expires": 7 });
+
     fetchKitties();
 
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
