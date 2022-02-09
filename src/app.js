@@ -177,11 +177,23 @@ $(function() {
 
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
 
-    setTimeout(grid.data("kendoGrid").dataSource.data(kitties), 3000);
-
-    // setTimeout(location.reload(), 2000);
-    // setTimeout(grid.reload(), 4000);
-    setTimeout(location.reload(), 6000);
+    grid.data("kendoGrid").dataSource.data([
+      {
+        "name": "Charmmykitty",
+        "age": "08",
+        "flower": "https://www.provenwinners.com/sites/provenwinners.com/files/imagecache/500x500/ifa_upload/pink_chiffon_hibiscus_0.jpg"
+      },
+      {
+        "name": "Embercat",
+        "age": "02",
+        "flower": "https://i5.walmartimages.com/asr/555507a6-387b-4972-8207-deaf97fab275_1.11842a3a5487661dea68be2b7f680770.png"
+      },
+      {
+        "name": "Kittay",
+        "age": "14",
+        "flower": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/green-flowers-green-gerber-daisy-1586803096.jpg"
+      }
+    ]);
 
     $.cookie("deletedCharmmy", "no", { "expires": 7 });
     $.cookie("deletedEmber", "no", { "expires": 7 });
