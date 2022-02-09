@@ -88,7 +88,7 @@ const deleteRow = (btn, kitty) => {
   // grid.removeRow(`tr:eq(${row})`);
   hide([btn]);
 
-  undoButton.removeClass('hidden');
+  undoBtn.removeClass('hidden');
 
   const index = kitties.findIndex(cat => cat.name === kitty);
 
@@ -192,6 +192,7 @@ $(function() {
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
 
     refreshNotice.removeClass('hidden');
+    undoBtn.addClass('hidden');
 
     console.log('undo clicked');
     
