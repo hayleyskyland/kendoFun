@@ -6,7 +6,8 @@ body {
   flex-direction: row;
   justify-content: center;
   padding-top: 3rem;
-  background-color: rgb(247, 236, 238);
+  background-color: lightblue;
+  /* background-color: rgb(247, 236, 238); */
   /* background-color: lightyellow; */
 }
 
