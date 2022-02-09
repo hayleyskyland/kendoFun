@@ -83,7 +83,7 @@ const deleteRow = (btn, row) => {
   // grid.removeRow(`tr:eq(${row})`);
   hide([btn]);
   kitties.splice(row, 1);
-  dataSource.sync();
+  $("#grid").data("kendoGrid").dataSource.data(kitties);
 }
 
 // helper - click individual buttons
