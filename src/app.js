@@ -55,12 +55,6 @@ $(function(){
         data: kitties
       },
 
-      schema: {
-        name: "name",
-        age: "age",
-        flower: "flower"
-      },
-
       width: 500,
       scrollable: false,
       sortable: true
@@ -188,19 +182,13 @@ $(function() {
         "flower": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/green-flowers-green-gerber-daisy-1586803096.jpg"
       }
     ]);
-
-    grid.data("kendoGrid").dataSource.data(kitties);
-
+    
     console.log("undo kitties:", kitties);
 
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
 
     console.log('undo clicked');
-
-    // if (confirm("Please refresh the page to update.")) {
-    //   window.location.reload();  
-    // }
     
-    // alert("Please refresh the page to update.")
+    alert("Please refresh the page to update.")
   });
 });
