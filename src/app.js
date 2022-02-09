@@ -7,7 +7,6 @@ fetch("./src/data.json")
     return resp.json();
   })
   .then(function(data) {
-    console.log('test')
     console.log(data);
     kitties = data.kitties;
     // console.log(kitties);
@@ -47,8 +46,6 @@ const columns = [
 //////////// KENDO GRID ////////////
 
 $(function(){
-  console.log('this array should not be empty:', kitties)
-  
   $("#grid").kendoGrid({
 
       columns: columns,
@@ -60,7 +57,6 @@ $(function(){
       width: 500,
       scrollable: false,
       sortable: true
-
   });
 })
 
