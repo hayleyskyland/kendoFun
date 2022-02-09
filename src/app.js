@@ -2,7 +2,7 @@
 
 const grid = $("#grid");
 
-const refreshNotice = $("h1");
+const refreshNotice = $("h3");
 
 const deleteCharmmyBtn = $("#deleteCharmmy");
 const deleteEmberBtn = $("#deleteEmber");
@@ -188,8 +188,6 @@ $(function() {
 //////////// UNDO BUTTON ////////////
 
 $(function() {
-  refreshNotice.addClass("hidden");
-
   undoBtn.on("click", function(e) {
     $.cookie("deletedCharmmy", "no", { "expires": 7 });
     $.cookie("deletedEmber", "no", { "expires": 7 });
