@@ -1,3 +1,13 @@
+//////////// GLOBAL VARIABLES ////////////
+
+const grid = $("#grid");
+
+const deleteCharmmyBtn = $("#deleteCharmmy");
+const deleteEmberBtn = $("#deleteEmber");
+const deleteKittayBtn = $("#deleteKittay");
+
+//////////// GRID INFO VARIABLES ////////////
+
 "use strict";
 
 let kitties = []
@@ -8,28 +18,11 @@ const fetchKitties = () => {
     return resp.json();
   })
   .then(function(data) {
-    // console.log(data);
     kitties = data.kitties;
-    // console.log(kitties);
-  })
-}
+  });
+};
 
 fetchKitties();
-
-//////////// GLOBAL VARIABLES ////////////
-
-const deleteCharmmyBtn = $("#deleteCharmmy");
-const deleteEmberBtn = $("#deleteEmber");
-const deleteKittayBtn = $("#deleteKittay");
-
-//////////// GRID INFO VARIABLES ////////////
-
-// data
-
-// const kitties = [
-// ];
-
-// columns
 
 const columns = [
   {
@@ -50,7 +43,7 @@ const columns = [
 //////////// KENDO GRID ////////////
 
 $(function(){
-  $("#grid").kendoGrid({
+  grid.kendoGrid({
 
       columns: columns,
 
@@ -83,7 +76,7 @@ const show = (elements) => {
 // helper - delete individual rows
 
 const deleteRow = (btn, kitty) => {
-  // let grid = $("#grid").data("kendoGrid");
+  // let grid = grid.data("kendoGrid");
   // grid.removeRow(`tr:eq(${row})`);
   hide([btn]);
 
@@ -93,7 +86,7 @@ const deleteRow = (btn, kitty) => {
 
   if (index != -1) {
     kitties.splice(index, 1);
-    $("#grid").data("kendoGrid").dataSource.data(kitties);
+    grid.data("kendoGrid").dataSource.data(kitties);
   }
 }
 
@@ -192,6 +185,8 @@ $(function() {
 
     console.log('undo clicked');
 
-    setTimeout(location.reload(), 5000);
+    setTimeout(location.reload(), 2000);
+    setTimeout(grid.reload(), 4000);
+    setTimeout(location.reload(), 6000);
   });
 });
