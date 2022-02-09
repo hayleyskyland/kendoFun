@@ -2,7 +2,7 @@
 
 const grid = $("#grid");
 
-const refreshNotice = $("h3");
+const refreshNotice = $("#refreshNotice");
 
 const deleteCharmmyBtn = $("#deleteCharmmy");
 const deleteEmberBtn = $("#deleteEmber");
@@ -36,7 +36,7 @@ const columns = [
   {
     field: "name",
     title: "Kitty Name",
-    template: "<button class='dropdown' id='#= name #'><img src='#= flower #' />#= name #</div>",
+    template: "<button id='#= name #'><img src='#= flower #' />#= name #</div>",
     headerAttributes: { style: "font-size: 24px" },
     width: 100
   },
@@ -111,45 +111,24 @@ const clickKitty = (kitty, btn, cookie) => {
 
 // call all click functions
 
-// $(function() {
-//   const buttonCharmmy = $("#Charmmykitty");
-//   const buttonEmber = $("#Embercat");
-//   const buttonKittay = $("#Kittay");
-
-//   buttonCharmmy.on("click", function(e) {
-//     clickKitty('Charmmykitty', deleteCharmmyBtn, 'deletedCharmmy');
-//   });
-
-//   buttonEmber.on("click", function(e) {
-//     clickKitty('Embercat', deleteEmberBtn, 'deletedEmber');
-//   });
-
-//   buttonKittay.on("click", function(e) {
-//     clickKitty('Kittay', deleteKittayBtn, 'deletedKittay');
-//   });
-// });
-
 $(function() {
   const buttonCharmmy = $("#Charmmykitty");
-
-  buttonCharmmy.on("click", function(e) {
-    clickKitty('Charmmykitty', deleteCharmmyBtn, 'deletedCharmmy');
-  });
-});
-
-$(function() {
   const buttonEmber = $("#Embercat");
-
-  buttonEmber.on("click", function(e) {
-    clickKitty('Embercat', deleteEmberBtn, 'deletedEmber');
-  });
-});
-
-$(function() {
   const buttonKittay = $("#Kittay");
 
+  buttonCharmmy.on("click", function(e) {
+    alert("You clicked Charmmkitty!");
+    // clickKitty('Charmmykitty', deleteCharmmyBtn, 'deletedCharmmy');
+  });
+
+  buttonEmber.on("click", function(e) {
+    alert("You clicked Embercat!");
+    // clickKitty('Embercat', deleteEmberBtn, 'deletedEmber');
+  });
+
   buttonKittay.on("click", function(e) {
-    clickKitty('Kittay', deleteKittayBtn, 'deletedKittay');
+    alert("You clicked Kittay!");
+    // clickKitty('Kittay', deleteKittayBtn, 'deletedKittay');
   });
 });
 
