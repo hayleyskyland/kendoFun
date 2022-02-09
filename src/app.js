@@ -2,7 +2,7 @@
 
 let kitties = []
 
-fetch("./data.json")
+fetch("./src/data.json")
   .then(function(resp) {
     return resp.json();
   })
