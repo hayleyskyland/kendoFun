@@ -82,7 +82,7 @@ const deleteRow = (btn, kitty) => {
 
   const index = kitties.findIndex(cat => cat.name === kitty);
 
-  console.log("index:", index);
+  // console.log("index:", index);
 
   if (index != -1) {
     kitties.splice(index, 1);
@@ -97,7 +97,6 @@ const clickKitty = (kitty, btn, cookie) => {
   $.cookie(cookie, "yes");
 
   console.log('deleted:', kitty);
-  // console.log('deletion confirmed:', $.cookie(cookie));
 };
 
 // call all click functions
@@ -158,10 +157,6 @@ $(function() {
   const undoBtn = $("#undoBtn");
 
   undoBtn.on("click", function(e) {
-    $.cookie("deletedCharmmy", "no", { "expires": 7 });
-    $.cookie("deletedEmber", "no", { "expires": 7 });
-    $.cookie("deletedKittay", "no", { "expires": 7 });
-
     kitties.push([
       {
         "name": "Charmmykitty",
@@ -179,14 +174,17 @@ $(function() {
         "flower": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/green-flowers-green-gerber-daisy-1586803096.jpg"
       }
     ])
-    console.log("undo kitties:", kitties);
 
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
 
-    console.log('undo clicked');
+    grid.data("kendoGrid").dataSource.data(kitties);
 
     setTimeout(location.reload(), 2000);
     setTimeout(grid.reload(), 4000);
     setTimeout(location.reload(), 6000);
+
+    $.cookie("deletedCharmmy", "no", { "expires": 7 });
+    $.cookie("deletedEmber", "no", { "expires": 7 });
+    $.cookie("deletedKittay", "no", { "expires": 7 });
   });
 });
