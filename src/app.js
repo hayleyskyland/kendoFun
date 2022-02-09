@@ -8,7 +8,7 @@ const fetchKitties = () => {
     return resp.json();
   })
   .then(function(data) {
-    console.log(data);
+    // console.log(data);
     kitties = data.kitties;
     // console.log(kitties);
   })
@@ -89,6 +89,8 @@ const deleteRow = (btn, kitty) => {
 
   const index = kitties.findIndex(cat => cat.name === kitty);
 
+  console.log("index:", index)
+
   kitties.splice(index, 1);
 
   $("#grid").data("kendoGrid").dataSource.data(kitties);
@@ -167,9 +169,12 @@ $(function() {
     $.cookie("deletedKittay", "no", { "expires": 7 });
 
     fetchKitties();
+    console.log("undo kitties:", kitties)
 
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
 
     console.log('undo clicked')
+
+    reload();
   });
 });
