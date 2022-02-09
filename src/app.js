@@ -177,10 +177,10 @@ $(function() {
 
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
 
-    grid.data("kendoGrid").dataSource.data(kitties);
+    setTimeout(grid.data("kendoGrid").dataSource.data(kitties), 3000);
 
-    setTimeout(location.reload(), 2000);
-    setTimeout(grid.reload(), 4000);
+    // setTimeout(location.reload(), 2000);
+    // setTimeout(grid.reload(), 4000);
     setTimeout(location.reload(), 6000);
 
     $.cookie("deletedCharmmy", "no", { "expires": 7 });
