@@ -165,7 +165,7 @@ $(function() {
     $.cookie("deletedEmber", "no", { "expires": 7 });
     $.cookie("deletedKittay", "no", { "expires": 7 });
 
-    kitties.push([
+    kitties = kitties.push([
       {
         "name": "Charmmykitty",
         "age": "08",
@@ -188,6 +188,10 @@ $(function() {
 
     console.log('undo clicked');
 
-    alert("Please refresh the page to update.")
+    if (confirm("Please refresh the page to update.")) {
+      window.location.reload();  
+    }
+    
+    // alert("Please refresh the page to update.")
   });
 });
