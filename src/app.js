@@ -70,13 +70,13 @@ $(function(){
 
 const hide = (elements) => {
   elements.forEach(element => {
-    element.addClass("hidden");
+    element.hide();
   });
 };
 
 const show = (elements) => {
   elements.forEach(element => {
-    element.removeClass("hidden");
+    element.show();
   });
 };
 
@@ -89,11 +89,10 @@ const deleteRow = (btn, kitty) => {
 
   const index = kitties.findIndex(cat => cat.name === kitty);
 
-  console.log("index:", index)
+  console.log("index:", index);
 
   if (index != -1) {
     kitties.splice(index, 1);
-
     $("#grid").data("kendoGrid").dataSource.data(kitties);
   }
 }
@@ -176,7 +175,5 @@ $(function() {
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
 
     console.log('undo clicked')
-
-    location.reload();
   });
 });
