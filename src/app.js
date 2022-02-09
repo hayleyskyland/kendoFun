@@ -2,6 +2,8 @@
 
 const grid = $("#grid");
 
+const refreshNotice = $("h1");
+
 const deleteCharmmyBtn = $("#deleteCharmmy");
 const deleteEmberBtn = $("#deleteEmber");
 const deleteKittayBtn = $("#deleteKittay");
@@ -159,6 +161,7 @@ $(function() {
 
 $(function() {
   const undoBtn = $("#undoBtn");
+  // hide([refreshNotice]);
 
   undoBtn.on("click", function(e) {
     $.cookie("deletedCharmmy", "no", { "expires": 7 });
@@ -182,13 +185,13 @@ $(function() {
         "flower": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/green-flowers-green-gerber-daisy-1586803096.jpg"
       }
     ]);
-    
+
     console.log("undo kitties:", kitties);
 
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
 
     console.log('undo clicked');
     
-    alert("Please refresh the page to update.")
+    // alert("Please refresh the page to update.")
   });
 });
