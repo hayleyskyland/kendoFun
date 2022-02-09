@@ -79,9 +79,10 @@ const show = (elements) => {
 // helper - delete individual rows
 
 const deleteRow = (btn, row) => {
-  let grid = $("#grid").data("kendoGrid");
-  grid.removeRow(`tr:eq(${row})`);
+  // let grid = $("#grid").data("kendoGrid");
+  // grid.removeRow(`tr:eq(${row})`);
   hide([btn]);
+  kitties.splice(row, 1)
 }
 
 // helper - click individual buttons
@@ -102,15 +103,15 @@ $(function() {
   const buttonKittay = $("#Kittay");
 
   buttonCharmmy.on("click", function(e) {
-    clickKitty('Charmmykitty', deleteCharmmyBtn, 1, 'deletedCharmmy');
+    clickKitty('Charmmykitty', deleteCharmmyBtn, 0, 'deletedCharmmy');
   });
 
   buttonEmber.on("click", function(e) {
-    clickKitty('Embercat', deleteEmberBtn, 2, 'deletedEmber');
+    clickKitty('Embercat', deleteEmberBtn, 1, 'deletedEmber');
   });
 
   buttonKittay.on("click", function(e) {
-    clickKitty('Kittay', deleteKittayBtn, 3, 'deletedKittay');
+    clickKitty('Kittay', deleteKittayBtn, 2, 'deletedKittay');
   });
 });
 
@@ -118,15 +119,15 @@ $(function() {
 
 $(function() {
   deleteCharmmyBtn.on("click", function(e) {
-    clickKitty('Charmmykitty', deleteCharmmyBtn, 1, 'deletedCharmmy');
+    clickKitty('Charmmykitty', deleteCharmmyBtn, 0, 'deletedCharmmy');
   });
 
   deleteEmberBtn.on("click", function(e) {
-    clickKitty('Embercat', deleteEmberBtn, 2, 'deletedEmber');
+    clickKitty('Embercat', deleteEmberBtn, 1, 'deletedEmber');
   });
 
   deleteKittayBtn.on("click", function(e) {
-    clickKitty('Kittay', deleteKittayBtn, 3, 'deletedKittay');
+    clickKitty('Kittay', deleteKittayBtn, 2, 'deletedKittay');
   });
 });
 
@@ -134,15 +135,15 @@ $(function() {
 
 $(function() {
   if ($.cookie("deletedCharmmy") === "yes") {
-    deleteRow(deleteCharmmyBtn, 1);
+    deleteRow(deleteCharmmyBtn, 0);
   };
 
   if ($.cookie("deletedEmber") === "yes") {
-    deleteRow(deleteEmberBtn, 2);
+    deleteRow(deleteEmberBtn, 1);
   };
 
   if ($.cookie("deletedKittay") === "yes") {
-    deleteRow(deleteKittayBtn, 3);
+    deleteRow(deleteKittayBtn, 2);
   };
 });
 
