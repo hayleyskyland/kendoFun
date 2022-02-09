@@ -170,10 +170,12 @@ $(function() {
     $.cookie("deletedKittay", "no", { "expires": 7 });
 
     fetchKitties();
-    console.log("undo kitties:", kitties)
+    console.log("undo kitties:", kitties);
 
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
 
-    console.log('undo clicked')
+    console.log('undo clicked');
+
+    window.reload();
   });
 });
