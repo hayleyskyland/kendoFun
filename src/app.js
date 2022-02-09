@@ -2,7 +2,8 @@
 
 let kitties = []
 
-fetch("./src/data.json")
+const fetchKitties = () => {
+  fetch("./src/data.json")
   .then(function(resp) {
     return resp.json();
   })
@@ -11,6 +12,9 @@ fetch("./src/data.json")
     kitties = data.kitties;
     // console.log(kitties);
   })
+}
+
+fetchKitties();
 
 //////////// GLOBAL VARIABLES ////////////
 
@@ -90,10 +94,10 @@ const deleteRow = (btn, row) => {
 
 const clickKitty = (kitty, btn, row, cookie) => {
   deleteRow(btn, row);
-  $.cookie(cookie, "yes");
+  // $.cookie(cookie, "yes");
 
   console.log('deleted:', kitty);
-  console.log('deletion confirmed:', $.cookie(cookie));
+  // console.log('deletion confirmed:', $.cookie(cookie));
 };
 
 // call all click functions
@@ -134,19 +138,19 @@ $(function() {
 
 // call cookies
 
-$(function() {
-  if ($.cookie("deletedCharmmy") === "yes") {
-    deleteRow(deleteCharmmyBtn, 0);
-  };
+// $(function() {
+//   if ($.cookie("deletedCharmmy") === "yes") {
+//     deleteRow(deleteCharmmyBtn, 0);
+//   };
 
-  if ($.cookie("deletedEmber") === "yes") {
-    deleteRow(deleteEmberBtn, 1);
-  };
+//   if ($.cookie("deletedEmber") === "yes") {
+//     deleteRow(deleteEmberBtn, 1);
+//   };
 
-  if ($.cookie("deletedKittay") === "yes") {
-    deleteRow(deleteKittayBtn, 2);
-  };
-});
+//   if ($.cookie("deletedKittay") === "yes") {
+//     deleteRow(deleteKittayBtn, 2);
+//   };
+// });
 
 //////////// UNDO BUTTON ////////////
 
@@ -154,9 +158,11 @@ $(function() {
   const undoBtn = $("#undoBtn");
 
   undoBtn.on("click", function(e) {
-    $.cookie("deletedCharmmy", "no", { "expires": 7 });
-    $.cookie("deletedEmber", "no", { "expires": 7 });
-    $.cookie("deletedKittay", "no", { "expires": 7 });
+    // $.cookie("deletedCharmmy", "no", { "expires": 7 });
+    // $.cookie("deletedEmber", "no", { "expires": 7 });
+    // $.cookie("deletedKittay", "no", { "expires": 7 });
+
+    fetchKitties();
 
     show([deleteCharmmyBtn, deleteEmberBtn, deleteKittayBtn]);
 
