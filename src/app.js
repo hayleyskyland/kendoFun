@@ -55,6 +55,12 @@ $(function(){
         data: kitties
       },
 
+      schema: {
+        name: "name",
+        age: "age",
+        flower: "flower"
+      },
+
       width: 500,
       scrollable: false,
       sortable: true
