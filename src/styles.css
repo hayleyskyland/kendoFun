@@ -6,9 +6,7 @@ body {
   flex-direction: row;
   justify-content: center;
   padding-top: 3rem;
-  background-color: lightblue;
-  /* background-color: rgb(247, 236, 238); */
-  /* background-color: lightyellow; */
+  background-color: #A4CCB9;
 }
 
 .hidden {
@@ -49,18 +47,18 @@ img {
 }
 
 #Embercat {
-  color: mediumorchid;
+  color: #cc66ff;
 }
 
 #Kittay {
-  color: yellowgreen;
+  color: #ff9966;
 }
 
 /* after grid */
 
 #undoBtn,
 .dropbtn {
-  margin-top: 2rem;
+  margin: 2rem 0.25rem 0 0;
   font-size: 16px;
   border: 1px solid lightgray;
   padding: 0.5rem;
@@ -70,15 +68,14 @@ img {
 
 /* dropdown */
 
-/* The container <div> - needed to position the dropdown content */
+/* container <div> - position dropdown content */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* Dropdown Content (Hidden by Default) */
+/* dropdown content */
 .dropdown-content {
-  display: none;
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
@@ -87,7 +84,7 @@ img {
   font-size: 12px;
 }
 
-/* Links inside the dropdown */
+/* links in dropdown */
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
@@ -95,8 +92,8 @@ img {
   display: block;
 }
 
-/* Change color of dropdown links on hover */
+/* link hover color */
 .dropdown-content a:hover {background-color: #ddd;}
 
-/* Show the dropdown menu on hover */
+/* show dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
