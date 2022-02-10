@@ -18,7 +18,7 @@ const undoBtn = $("#undoBtn");
 
 let kitties = []
 
-const fetchKitties = () => {
+// const fetchKitties = () => {
   fetch("./src/data.json")
   .then(function(resp) {
     return resp.json();
@@ -26,9 +26,9 @@ const fetchKitties = () => {
   .then(function(data) {
     kitties = data.kitties;
   });
-};
+// };
 
-fetchKitties();
+// fetchKitties();
 
 // columns
 
