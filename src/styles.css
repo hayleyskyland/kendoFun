@@ -6,7 +6,7 @@ body {
   flex-direction: row;
   justify-content: center;
   padding-top: 3rem;
-  background-color: #A4CCB9;
+  background-color: #8ABCA4;
 }
 
 .hidden {
@@ -43,7 +43,7 @@ img {
 }
 
 #Charmmykitty {
-  color: #FFADBA;
+  color: #FF8599;
 }
 
 #Embercat {
@@ -51,7 +51,7 @@ img {
 }
 
 #Kittay {
-  color: #F19B6A;
+  color: #FD985D;
 }
 
 /* after grid */
