@@ -6,8 +6,8 @@ body {
   flex-direction: row;
   justify-content: center;
   padding-top: 3rem;
-  /* background-color: lightblue; */
-  background-color: rgb(247, 236, 238);
+  background-color: lightblue;
+  /* background-color: rgb(247, 236, 238); */
   /* background-color: lightyellow; */
 }
 
@@ -16,6 +16,16 @@ body {
 }
 
 /* grid */
+
+.k-grouping-row {
+  text-align: center;
+}
+
+.k-grid {
+  border-radius: 1rem;
+  overflow: hidden;
+  text-align: left;
+}
 
 img {
   height: 1rem;
@@ -34,24 +44,16 @@ img {
   margin: -0.5rem;
 }
 
-.k-grouping-row {
-  text-align: center;
-}
-
-#name {
-  color: red;
-}
-
 #Charmmykitty {
   color: pink;
 }
 
 #Embercat {
-  color: purple;
+  color: mediumorchid;
 }
 
 #Kittay {
-  color: green;
+  color: yellowgreen;
 }
 
 /* after grid */
@@ -64,12 +66,6 @@ img {
   padding: 0.5rem;
   border-radius: 0.74rem;
   padding: 0.5rem 1rem 0.5rem 1rem;
-}
-
-.k-grid {
-  border-radius: 1rem;
-  overflow: hidden;
-  text-align: left;
 }
 
 /* dropdown */

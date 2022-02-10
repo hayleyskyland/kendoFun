@@ -117,7 +117,7 @@ $(function() {
   const buttonKittay = $("#Kittay");
 
   buttonCharmmy.on("click", function(e) {
-    alert("You clicked Charmmkitty!");
+    alert("You clicked Charmmykitty!");
     // clickKitty('Charmmykitty', deleteCharmmyBtn, 'deletedCharmmy');
   });
 
