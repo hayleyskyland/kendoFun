@@ -16,17 +16,35 @@ const undoBtn = $("#undoBtn");
 
 "use strict";
 
-let kitties = []
+// let kitties = []
 
 // const fetchKitties = () => {
-  fetch("./src/data.json")
-  .then(function(resp) {
-    return resp.json();
-  })
-  .then(function(data) {
-    kitties = data.kitties;
-  });
+  // fetch("./src/data.json")
+  // .then(function(resp) {
+  //   return resp.json();
+  // })
+  // .then(function(data) {
+  //   kitties = data.kitties;
+  // });
 // };
+
+let kitties = [
+  {
+    "name": "Charmmykitty",
+    "age": "08",
+    "flower": "https://pngimage.net/wp-content/uploads/2018/06/png-tumblr-rosa.png"
+  },
+  {
+    "name": "Embercat",
+    "age": "02",
+    "flower": "https://i5.walmartimages.com/asr/555507a6-387b-4972-8207-deaf97fab275_1.11842a3a5487661dea68be2b7f680770.png"
+  },
+  {
+    "name": "Kittay",
+    "age": "14",
+    "flower": "https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Flowers-PNG/Orange_Flower_Transparent_PNG_Clip_Art.png?m=1507690502"
+  }
+]
 
 // fetchKitties();
 
